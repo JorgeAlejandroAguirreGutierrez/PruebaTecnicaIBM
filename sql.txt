@@ -1,0 +1,12 @@
+INSERT INTO customer (`address`, `city`, `name`, `phone`) VALUES ('a', 'a', 'a', 'a');
+INSERT INTO customer (`address`, `city`, `name`, `phone`) VALUES ('b', 'a', 'a', 'a');
+INSERT INTO customer (`address`, `city`, `name`, `phone`) VALUES ('c', 'a', 'a', 'a');
+INSERT INTO customer (`address`, `city`, `name`, `phone`) VALUES ('d', 'a', 'a', 'a');
+
+INSERT INTO card (`ccv`, `number`, `type`, `customer_id`) VALUES ('x', 'c', 'c', 1);
+INSERT INTO card (`ccv`, `number`, `type`, `customer_id`) VALUES ('y', 'c', 'c', 1);
+INSERT INTO card (`ccv`, `number`, `type`, `customer_id`) VALUES ('z', 'c', 'c', 2);
+
+INSERT INTO history (`amount`, `date`, `description`, `card_id`) VALUES ('12000', '2019-01-01', 'consumo1', '1');
+INSERT INTO history (`amount`, `date`, `description`, `card_id`) VALUES ('15000', '2019-01-01', 'consumo2', '1');
+INSERT INTO history (`amount`, `date`, `description`, `card_id`) VALUES ('20000', '2019-01-01', 'consumo3', '1');

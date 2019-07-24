@@ -1,37 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from './customer.service';
-import { Customer } from './customer';
+import { AdviserService } from './adviser.service';
+import { Adviser } from './adviser';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.css']
+  selector: 'app-adviser',
+  templateUrl: './adviser.component.html',
+  styleUrls: ['./adviser.component.css']
 })
-export class CustomerComponent implements OnInit {
+export class AdviserComponent implements OnInit {
 
-  ccustomer= new Customer();
-  pcustomer= new Customer();
-  customers: Customer[];
+  cadviser= new Adviser();
+  padviser= new Adviser();
+  advisors: Adviser[];
   bandera: Boolean;
 
-  constructor(private customerService: CustomerService, private modalService: NgbModal) { }
+  constructor(private adviserService: AdviserService, private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.customerService.get().subscribe(
-      response=>this.customers=response
+    this.adviserService.get().subscribe(
+      response=>this.advisors=response
     );
   }
 
-  open(content: string, customer: Customer) {
-    this.pcustomer=customer;
+  open(content: string, adviser: Adviser) {
+    this.padviser=adviser;
     this.modalService.open(content, {size: 'lg'}).result.then((result) => {
       if (result=="update") {
-        this.update(this.pcustomer);
+        this.update(this.padviser);
       }
       if (result=="delete") {
-        this.delete(this.pcustomer.id);
+        this.delete(this.padviser.id);
       }
     }, (reason) => {
       Swal.fire('Mensaje', `Dismissed ${this.getDismissReason(reason)}`, 'info');
@@ -49,9 +49,9 @@ export class CustomerComponent implements OnInit {
   }
 
   create() {
-    this.customerService.create(this.ccustomer).subscribe(
+    this.adviserService.create(this.cadviser).subscribe(
       res => {
-        this.ccustomer=res
+        this.cadviser=res
         this.ngOnInit();
         Swal.fire('Mensaje', "Se ha creado el cliente", 'success');
       }
@@ -60,10 +60,10 @@ export class CustomerComponent implements OnInit {
     );
   }
 
-  update(customer: Customer) {
-    this.customerService.update(customer).subscribe(
+  update(adviser: Adviser) {
+    this.adviserService.update(adviser).subscribe(
       res => {
-        this.pcustomer=res
+        this.padviser=res
         this.ngOnInit();
         Swal.fire('Mensaje', "Se ha actualizado el cliente", 'success');
       },
@@ -72,7 +72,7 @@ export class CustomerComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.customerService.delete(id).subscribe(
+    this.adviserService.delete(id).subscribe(
       res => {
         this.bandera=res
         this.ngOnInit();

@@ -6,5 +6,8 @@ import com.backend.ibm.BackEndIBM.models.History;
 public interface IHistory {
 	
 	public ArrayList<History> get();
-	public ArrayList<History> getID(long ID);
+	public History getID(long ID);
+	public History create(History history);
+	public History update(History history);
+	public Boolean delete(Long id);
 }

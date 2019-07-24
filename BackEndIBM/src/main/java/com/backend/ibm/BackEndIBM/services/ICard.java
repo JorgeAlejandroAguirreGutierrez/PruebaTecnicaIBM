@@ -8,6 +8,7 @@ public interface ICard {
 	
 	public ArrayList<Card> get();
 	public Card getID(Long id);
+	public Card getHistorys(Long id);
 	public Card create(Card card);
 	public Card update(Card card);
 	public Boolean delete(Long id);

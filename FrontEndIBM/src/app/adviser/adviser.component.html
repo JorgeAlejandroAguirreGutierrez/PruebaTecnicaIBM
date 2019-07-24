@@ -1,30 +1,18 @@
 <div class="row">
     <div class="col-12">
-        <h3>Crear Clientes</h3>
+        <h3>Crear Asesor</h3>
         <hr>
         <div id="formulario">
             <div class="form-group form-row">
                 <label for="codigo" class="col-4 col-form-label">Nombre</label>
                 <div class="col-8">
-                    <input type="text" [(ngModel)]="ccustomer.name" #codigo="ngModel" class="form-control">
+                    <input type="text" [(ngModel)]="cadviser.name" #codigo="ngModel" class="form-control">
                 </div>
             </div>
             <div class="form-group form-row">
-                <label for="codigo" class="col-4 col-form-label">Direccion</label>
+                <label for="codigo" class="col-4 col-form-label">Especialidad</label>
                 <div class="col-8">
-                    <input type="text" [(ngModel)]="ccustomer.address" #codigo="ngModel" class="form-control">
-                </div>
-            </div>
-            <div class="form-group form-row">
-                <label for="codigo" class="col-4 col-form-label">Ciudad</label>
-                <div class="col-8">
-                    <input type="text" [(ngModel)]="ccustomer.city" #codigo="ngModel" class="form-control">
-                </div>
-            </div>
-            <div class="form-group form-row">
-                <label for="plazo" class="col-4 col-form-label">Telefono</label>
-                <div class="col-8">
-                    <input type="number" [(ngModel)]="ccustomer.phone" #name="ngModel" class="form-control">
+                    <input type="text" [(ngModel)]="cadviser.speciality" #codigo="ngModel" class="form-control">
                 </div>
             </div>
             <div class="form-group text-center">
@@ -35,42 +23,34 @@
 </div>
 <div class="row">
     <div class="col-12">
-        <h3>Ver clientes</h3>
+        <h3>Ver Asesores</h3>
         <hr>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>NOMBRE</th>
-                    <th>DIRECCION</th>
-                    <th>CIUDAD</th>
-                    <th>TELEFONO</th>
+                    <th>ESPECIALIDAD</th>
                     <th>OPCIONES</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let customer of customers">
+                <tr *ngFor="let adviser of advisers">
                     <td>
-                        {{customer.id}}
+                        {{adviser.id}}
                     </td>
                     <td>
-                        {{customer.name}}
+                        {{adviser.name}}
                     </td>
                     <td>
-                        {{customer.address}}
-                    </td>
-                    <td>
-                        {{customer.city}}
-                    </td>
-                    <td>
-                        {{customer.phone}}
+                        {{adviser.speciality}}
                     </td>
                     <td>
                         <div class="btn-group btn-group-justified">
-                            <button type="button" class="btn btn-default" (click)="open(update, customer)">
+                            <button type="button" class="btn btn-default" (click)="open(update, adviser)">
                                 <fa-icon [icon]="['fas', 'edit']"></fa-icon>
                             </button>
-                            <button type="button" class="btn btn-default" (click)="open(delete, customer)">
+                            <button type="button" class="btn btn-default" (click)="open(delete, adviser)">
                                 <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
                             </button>
                         </div>
@@ -82,36 +62,24 @@
 </div>
 <ng-template #update let-modal>
     <div class="modal-header">
-        <h5 class="modal-title">Modificar Cliente</h5>
+        <h5 class="modal-title">Modificar Asesor</h5>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        <h3>Modificar Cliente</h3>
+        <h3>Modificar Asesor</h3>
         <div>
             <div class="form-group form-row">
                 <label class="col-2 col-form-label">Nombre</label>
                 <div class="col-10">
-                    <input type="text" class="form-control" [(ngModel)]="pcustomer.name">
+                    <input type="text" class="form-control" [(ngModel)]="padviser.name">
                 </div>
             </div>
             <div class="form-group form-row">
-                <label for="plazoM" class="col-2 col-form-label">Direccion</label>
+                <label class="col-2 col-form-label">Especialidad</label>
                 <div class="col-10">
-                    <input type="text" class="form-control" [(ngModel)]="pcustomer.address">
-                </div>
-            </div>
-            <div class="form-group form-row">
-                <label class="col-2 col-form-label">Ciudad</label>
-                <div class="col-10">
-                    <input type="text" class="form-control" [(ngModel)]="pcustomer.city">
-                </div>
-            </div>
-            <div class="form-group form-row">
-                <label class="col-2 col-form-label">Telefono</label>
-                <div class="col-10">
-                    <input type="text" class="form-control" [(ngModel)]="pcustomer.phone">
+                    <input type="text" class="form-control" [(ngModel)]="padviser.speciality">
                 </div>
             </div>
         </div>
@@ -123,25 +91,31 @@
 </ng-template>
 <ng-template #delete let-modal>
     <div class="modal-header">
-        <h5 class="modal-title">Eliminar Cliente</h5>
+        <h5 class="modal-title">Eliminar Asesor</h5>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        ¿Esta seguro de eliminar el cliente?
+        ¿Esta seguro de eliminar el asesor?
         <br>
         <div>
             <div class="form-group form-row">
                 <label class="col-2 col-form-label">ID</label>
                 <div class="col-10">
-                    <input type="text" class="form-control" disabled="" [(ngModel)]="pcustomer.id">
+                    <input type="text" class="form-control" disabled="" [(ngModel)]="padviser.id">
                 </div>
             </div>
             <div class="form-group form-row">
                 <label class="col-2 col-form-label">Nombre</label>
                 <div class="col-10">
-                    <input type="text" class="form-control" disabled="" [(ngModel)]="pcustomer.name">
+                    <input type="text" class="form-control" disabled="" [(ngModel)]="padviser.name">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label class="col-2 col-form-label">Especialidad</label>
+                <div class="col-10">
+                    <input type="text" class="form-control" disabled="" [(ngModel)]="padviser.speciality">
                 </div>
             </div>
         </div>

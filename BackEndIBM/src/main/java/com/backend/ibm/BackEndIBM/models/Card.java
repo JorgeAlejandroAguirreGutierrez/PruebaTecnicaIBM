@@ -1,5 +1,8 @@
 package com.backend.ibm.BackEndIBM.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,15 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.OneToMany;
-
-import java.util.List;
-
-import javax.persistence.CascadeType;
 
 @Entity
 @Table(name = "card")
@@ -36,6 +35,9 @@ public class Card {
 	@JoinColumn(name = "customer_id", nullable = false)
 	@JsonIgnore
 	private Customer customer;
+	
+	@OneToMany(cascade=CascadeType.ALL, targetEntity = History.class, mappedBy = "card")
+	private List<History> historys ;
 	
 	
 	public long getId() {
@@ -66,10 +68,12 @@ public class Card {
 		this.type = type;
 	}
 	
+	public List<History> getHistorys() {
+		return historys;
+	}
 	
-	
-	
-	
-	
+	public void setHistorys(List<History> historys) {
+		this.historys = historys;
+	}
 	
 }

@@ -44,11 +44,16 @@ public class CustomerService implements ICustomer {
 	@Override
 	public Boolean delete(Long id) {
 		try { 
-		customerDAO.deleteById(id);
-		return true;
+			customerDAO.deleteById(id);
+			return true;
 		} catch(Exception e) {
 			return false;
 		}
+	}
+
+	@Override
+	public Customer getCards(Long id) {
+		return customerDAO.findById(id).get();
 	}
 
 }

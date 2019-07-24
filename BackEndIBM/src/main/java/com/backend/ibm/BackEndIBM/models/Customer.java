@@ -1,7 +1,7 @@
 package com.backend.ibm.BackEndIBM.models;
 
 import java.io.Serializable;
-
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -27,6 +27,9 @@ public class Customer implements Serializable {
 	private String city;
 	@Column(nullable = false, length = 20)
 	private String phone;
+	
+	@OneToMany(cascade=CascadeType.ALL, targetEntity = Card.class, mappedBy = "customer")
+	private List<Card> cards ;
 	
 	public long getId() {
 		return id;
@@ -66,6 +69,14 @@ public class Customer implements Serializable {
 	
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	public List<Card> getCards() {
+		return cards;
+	}
+	
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
 	}
 	
 	/**
