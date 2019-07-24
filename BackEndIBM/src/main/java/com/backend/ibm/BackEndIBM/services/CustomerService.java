@@ -24,4 +24,31 @@ public class CustomerService implements ICustomer {
 		return customerDAO.findById(id).get();
 	}
 
+	@Override
+	public Customer create(Customer customer) {
+		Customer ccustomer=customerDAO.save(customer);
+		return ccustomer;
+	}
+
+	@Override
+	public Customer update(Customer customer) {
+		Customer ucustomer=customerDAO.findById(customer.getId()).get();
+		ucustomer.setName(customer.getName());
+		ucustomer.setPhone(customer.getPhone());
+		ucustomer.setAddress(customer.getAddress());
+		ucustomer.setCity(customer.getCity());
+		ucustomer=customerDAO.save(ucustomer);
+		return ucustomer;
+	}
+
+	@Override
+	public Boolean delete(Long id) {
+		try { 
+		customerDAO.deleteById(id);
+		return true;
+		} catch(Exception e) {
+			return false;
+		}
+	}
+
 }

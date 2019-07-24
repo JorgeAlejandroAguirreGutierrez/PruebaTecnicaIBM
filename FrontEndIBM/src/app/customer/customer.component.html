@@ -1,0 +1,144 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>PLAZO DE CREDITO</h2>
+            <hr>
+            <h3>Añadir Plazo de Credito</h3>
+            <hr>
+            <div id="formulario">
+                <div class="form-group form-row">
+                    <label for="codigo" class="col-4 col-form-label">Codigo</label>
+                    <div class="col-8">
+                        <input type="text" name="codigo" id="codigo" [(ngModel)]="plazo_credito.codigo"
+                            #codigo="ngModel" class="form-control" disabled="">
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <label for="plazo" class="col-4 col-form-label">Plazo</label>
+                    <div class="col-8">
+                        <input type="number" name="plazo" id="plazo" [(ngModel)]="plazo_credito.plazo" #name="ngModel"
+                            class="form-control" placeholder="Numero de Plazo" required>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button class="btn btn-success" (click)="crearPlazoCredito()">Crear Plazo de Credito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2>PLAZOS DE CREDITOS</h2>
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>DIRECCION</th>
+                        <th>CIUDAD</th>
+                        <th>TELEFONO</th>
+                        <th>OPCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of customers">
+                        <td>
+                            {{customer.id}}
+                        </td>
+                        <td>
+                            {{customer.name}}
+                        </td>
+                        <td>
+                            {{customer.address}}
+                        </td>
+                        <td>
+                            {{customer.city}}
+                        </td>
+                        <td>
+                            {{customer.phone}}
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-justified">
+                                <button type="button" class="btn btn-default" (click)="open(update)">
+                                    U
+                                </button>
+                                <button type="button" class="btn btn-default" (click)="open(delete)">
+                                    D
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalModificarPlazoCredito" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <h2>PLAZOS DE CREDITOS</h2>
+                    <hr>
+                    <h3>Modificar Plazo de Credito</h3>
+                    <hr>
+                    <input type="hidden" id="idM" value="-1">
+                    <div>
+                        <div class="form-group form-row">
+                            <label for="codigoM" class="col-2 col-form-label">Codigo</label>
+                            <div class="col-10">
+                                <input type="text" name="codigoM" id="codigoM" class="form-control"
+                                    placeholder="Codigo del Plazo" required disabled="">
+                            </div>
+                        </div>
+                        <div class="form-group form-row">
+                            <label for="plazoM" class="col-2 col-form-label">Plazo</label>
+                            <div class="col-10">
+                                <input type="number" name="plazoM" id="plazoM" class="form-control"
+                                    placeholder="Numero de Plazo" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" id="cModificarPlazoCredito">Modificar Plazo de
+                    Credito</button>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+<ng-template #eliminar_plazo_credito let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Eliminar Plazo de Credito</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        ¿Esta seguro de eliminar el plazo de credito?
+        <br>
+        <div>
+            <div class="form-group form-row">
+                <label for="codigoE" class="col-2 col-form-label">Codigo</label>
+                <div class="col-10">
+                    <input type="text" name="codigoE" id="codigoE" class="form-control" disabled="">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="plazoE" class="col-2 col-form-label">Plazo</label>
+                <div class="col-10">
+                    <input type="number" name="plazoE" id="plazoE" class="form-control" disabled="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>

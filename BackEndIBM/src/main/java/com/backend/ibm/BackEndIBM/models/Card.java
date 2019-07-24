@@ -2,12 +2,16 @@ package com.backend.ibm.BackEndIBM.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.OneToMany;
 
 import java.util.List;
@@ -27,11 +31,10 @@ public class Card {
 	@Column(nullable = false, length = 50)
 	private String type;
 	
-	@OneToMany(mappedBy="id",cascade=CascadeType.ALL, targetEntity=History.class )
-	private List<History> historys;
 	
-	@ManyToOne
-	@JoinColumn(name = "id", nullable = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "customer_id", nullable = false)
+	@JsonIgnore
 	private Customer customer;
 	
 	

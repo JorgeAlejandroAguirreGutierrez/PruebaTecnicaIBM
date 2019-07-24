@@ -3,12 +3,16 @@ package com.backend.ibm.BackEndIBM.models;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 
@@ -28,8 +32,9 @@ public class History {
 	@Column(nullable = false, length = 12, precision = 2)
 	private double amount;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "card_id", nullable = false)
+	@JsonIgnore
 	private Card card;
 
 	public long getId() {
