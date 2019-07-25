@@ -42,6 +42,15 @@ export class CustomerService {
       ); 
   }
 
+  getCards (id: number): Observable<Customer> {
+    return this.http.get<Customer>(this.url+'/'+id+'/cards').pipe(
+      map(response => response as Customer),
+      catchError(err => {
+        return throwError(err);
+        })
+      ); 
+  }
+
   update(customer: Customer): Observable<Customer> {
     return this.http.put(this.url, JSON.stringify(customer), this.options).pipe(
       map(response => response as Customer), 

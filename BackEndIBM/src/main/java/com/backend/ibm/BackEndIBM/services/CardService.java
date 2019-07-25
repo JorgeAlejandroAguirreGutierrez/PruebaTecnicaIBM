@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.backend.ibm.BackEndIBM.dao.ICardDAO;
 import com.backend.ibm.BackEndIBM.models.Card;
-import com.backend.ibm.BackEndIBM.models.Customer;
 
 @Service
 public class CardService implements ICard {

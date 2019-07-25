@@ -53,7 +53,7 @@ export class AdviserComponent implements OnInit {
       res => {
         this.cadviser=res
         this.ngOnInit();
-        Swal.fire('Mensaje', "Se ha creado el cliente", 'success');
+        Swal.fire('Mensaje', "Se ha creado el asesor", 'success');
       }
         ,
       err => Swal.fire('Error', err.error.mensaje, 'error')
@@ -65,7 +65,7 @@ export class AdviserComponent implements OnInit {
       res => {
         this.padviser=res
         this.ngOnInit();
-        Swal.fire('Mensaje', "Se ha actualizado el cliente", 'success');
+        Swal.fire('Mensaje', "Se ha actualizado el asesor", 'success');
       },
       err => Swal.fire('Error', err.error.mensaje, 'error')
     );
@@ -76,7 +76,7 @@ export class AdviserComponent implements OnInit {
       res => {
         this.bandera=res
         this.ngOnInit();
-        Swal.fire('Mensaje', "Se ha eliminado el cliente", 'success');
+        Swal.fire('Mensaje', "Se ha eliminado el asesor", 'success');
       },
       err => Swal.fire('Error', err.error.mensaje, 'error')
     );

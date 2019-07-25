@@ -3,10 +3,12 @@ package com.backend.ibm.BackEndIBM.services;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.backend.ibm.BackEndIBM.dao.IAdviserDAO;
 import com.backend.ibm.BackEndIBM.models.Adviser;
 
+@Service
 public class AdviserService implements IAdviser {
 	@Autowired
 	private IAdviserDAO adviserDAO;

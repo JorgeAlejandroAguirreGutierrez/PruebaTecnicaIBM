@@ -10,3 +10,7 @@ INSERT INTO card (`ccv`, `number`, `type`, `customer_id`) VALUES ('z', 'c', 'c',
 INSERT INTO history (`amount`, `date`, `description`, `card_id`) VALUES ('12000', '2019-01-01', 'consumo1', '1');
 INSERT INTO history (`amount`, `date`, `description`, `card_id`) VALUES ('15000', '2019-01-01', 'consumo2', '1');
 INSERT INTO history (`amount`, `date`, `description`, `card_id`) VALUES ('20000', '2019-01-01', 'consumo3', '1');
+
+INSERT INTO adviser (`name`, `speciality`) VALUES ('nombre1', 'especialidad1');
+INSERT INTO adviser (`name`, `speciality`) VALUES ('nombre2', 'especialidad2');
+INSERT INTO adviser (`name`, `speciality`) VALUES ('nombre3', 'especialidad3');

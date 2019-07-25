@@ -1,1 +1,89 @@
-<p>history works!</p>
+<div class="row">
+    <div class="col-12">
+        <h3>Clientes</h3>
+        <hr>
+        <div id="formulario">
+            <div class="form-group form-row">
+                <label for="codigo" class="col-4 col-form-label">Buscar</label>
+                <div class="col-8">
+                    <select class="form-control" (change)="select($event.target.value)">
+                        <option *ngFor="let customer of customers" [value]="customer.id">
+                            {{customer.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="codigo" class="col-4 col-form-label">Nombre</label>
+                <div class="col-8">
+                    <input type="text" [(ngModel)]="scustomer.name" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="codigo" class="col-4 col-form-label">Direccion</label>
+                <div class="col-8">
+                    <input type="text" [(ngModel)]="scustomer.address" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="codigo" class="col-4 col-form-label">Ciudad</label>
+                <div class="col-8">
+                    <input type="text" [(ngModel)]="scustomer.city" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="plazo" class="col-4 col-form-label">Telefono</label>
+                <div class="col-8">
+                    <input type="text" [(ngModel)]="scustomer.phone" class="form-control" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h3>Tarjetas</h3>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>NUMERO</th>
+                    <th>CVC</th>
+                    <th>TIPO</th>
+                    <th>OPCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+<ng-template #history let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Historial del Cliente</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h3>Consumo Tarjeta Cliente</h3>
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>FECHA</th>
+                        <th>DESCRIPCION</th>
+                        <th>MONTO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.close('close')">Cerrar</button>
+    </div>
+</ng-template>

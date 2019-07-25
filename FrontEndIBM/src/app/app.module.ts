@@ -6,6 +6,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -23,6 +25,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
   {path: 'customer', component: CustomerComponent},
   {path: 'history', component: HistoryComponent},
+  {path: 'adviser', component: AdviserComponent}
 ]
 
 @NgModule({
@@ -40,6 +43,8 @@ const routes: Routes = [
     FormsModule,
     NgbModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
     RouterModule.forRoot(routes)
   ],
   providers: [CustomerService, HistoryService, AdviserService],
