@@ -4,6 +4,10 @@
 _Tener instalado Node.js, npm y angular CLI segun documentacion oficial: https://angular.io/_
 _Realizar un update project de maven para tener actualizadas todas las dependencias del POM._
 _Si devuelve un error el pom.xml Actualizar el m2e connector de maven_
+_Luego de tener el ambiente en local para obtener data llamar al microservicio:_ 
+```
+GET http://localhost:8080/ibm/data
+```
 
 ## Consideraciones BackEnd
 _Se utilizo el gestor de base de datos embebido Apache Derby_
@@ -56,7 +60,7 @@ _Se utilizaron las librerias:_
 #### FontAwesome
 
 ## Consideraciones Deploy
-_Con una cuenta en IBM Cloud se creo un recurso de CloudFoundry Java Liberty con el que es posible realizar deploys de aplicaciones Java Web. Se procedio a obtener el build Angular y el war de spring boot. Y se crea el archivo manifiest.yml que permite hacer el despliegue:_
+_Con una cuenta en IBM Cloud se creo un recurso de CloudFoundry Java Liberty con el que es posible realizar deploys de aplicaciones Java Web, haciendo uso de IBM CLOUD CLI. Se procedio a obtener el build Angular y el war de spring boot. Y se crea el archivo manifiest.yml que permite hacer el despliegue:_
 ```
 applications:
    - name: BackEndIBM
