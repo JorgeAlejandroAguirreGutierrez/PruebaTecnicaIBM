@@ -21,7 +21,7 @@ import { AdviserService} from './adviser/adviser.service';
 import { CardService} from './customer/card.service';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/index', pathMatch: 'full'},
+  {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: 'cliente', component: CustomerComponent},
   {path: 'historia', component: HistoryComponent},
   {path: 'asesor', component: AdviserComponent}

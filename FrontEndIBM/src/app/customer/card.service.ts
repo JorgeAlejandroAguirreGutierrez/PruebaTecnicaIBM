@@ -17,7 +17,7 @@ export class CardService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getHistorys (id: number): Observable<Card> {
-    return this.http.get<Card>(global.endpoint+'/'+id+'/historys').pipe(
+    return this.http.get<Card>(global.endpoint+'/card/'+id+'/historys').pipe(
       map(response => response as Card),
       catchError(err => {
         return throwError(err);

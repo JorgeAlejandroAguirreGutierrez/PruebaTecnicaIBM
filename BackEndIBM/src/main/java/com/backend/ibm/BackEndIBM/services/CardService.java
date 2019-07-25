@@ -26,8 +26,14 @@ public class CardService implements ICard {
 
 	@Override
 	public Card create(Card card) {
-		Card ccard=cardDAO.save(card);
-		return ccard;
+		String regex= "^[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$";
+		if (card.getNumber().matches(regex)) {
+			Card ccard=cardDAO.save(card);
+			return ccard;
+		} else {
+			return null;
+		}
+		
 	}
 
 	@Override

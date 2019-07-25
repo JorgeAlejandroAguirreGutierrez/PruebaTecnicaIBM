@@ -24,7 +24,7 @@ export class CustomerComponent implements OnInit {
     );
   }
 
-  open(content: string, customer: Customer) {
+  open(content: any, customer: Customer) {
     this.pcustomer=customer;
     this.modalService.open(content, {size: 'lg'}).result.then((result) => {
       if (result=="update") {
@@ -34,7 +34,7 @@ export class CustomerComponent implements OnInit {
         this.delete(this.pcustomer.id);
       }
     }, (reason) => {
-      Swal.fire('Mensaje', `Dismissed ${this.getDismissReason(reason)}`, 'info');
+
     });
   }
 

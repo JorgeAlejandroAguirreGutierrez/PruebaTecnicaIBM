@@ -24,7 +24,7 @@ export class AdviserComponent implements OnInit {
     );
   }
 
-  open(content: string, adviser: Adviser) {
+  open(content: any, adviser: Adviser) {
     this.padviser=adviser;
     this.modalService.open(content, {size: 'lg'}).result.then((result) => {
       if (result=="update") {
@@ -34,7 +34,6 @@ export class AdviserComponent implements OnInit {
         this.delete(this.padviser.id);
       }
     }, (reason) => {
-      Swal.fire('Mensaje', `Dismissed ${this.getDismissReason(reason)}`, 'info');
     });
   }
 

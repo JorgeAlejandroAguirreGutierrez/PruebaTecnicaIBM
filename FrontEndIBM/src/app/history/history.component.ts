@@ -39,7 +39,7 @@ export class HistoryComponent implements OnInit {
     );
   }
 
-  open(content: string, card: Card) {
+  open(content: any, card: Card) {
     this.cardService.getHistorys(card.id).subscribe(
       response=>{
         this.card=response
@@ -48,7 +48,6 @@ export class HistoryComponent implements OnInit {
     );
     this.modalService.open(content, {size: 'lg'}).result.then((result) => {
     }, (reason) => {
-      Swal.fire('Mensaje', `Dismissed ${this.getDismissReason(reason)}`, 'info');
     });
   }
 
