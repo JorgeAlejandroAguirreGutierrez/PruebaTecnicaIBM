@@ -1,11 +1,11 @@
 # PruebaTecnicaIBM
 
-##Pre requisitos
+## Pre requisitos
 _Tener instalado Node.js, npm y angular CLI segun documentacion oficial: https://angular.io/_
 _Realizar un update project de maven para tener actualizadas todas las dependencias del POM._
 _Si devuelve un error el pom.xml Actualizar el m2e connector de maven_
 
-##Consideraciones BackEnd
+## Consideraciones BackEnd
 _Se utilizo el gestor de base de datos embebido Apache Derby_
 _Se crearon los CRUDs en Backend para Asesores, Clientes, Tarjetas y Consumos. Quedando las operaciones como sigue:_
 _Clientes:_
@@ -43,18 +43,18 @@ PUT http://localhost:8080/ibm/adviser
 DELETE http://localhost:8080/ibm/adviser/{id}
 ```
 
-##Consideraciones FrontEnd
+## Consideraciones FrontEnd
 _Se hicieron vistas para:_
-###Crud Clientes
-###Ver registros de clientes, tarjetas y consumos.
-###Crud Asesores.
+### Crud Clientes
+### Ver registros de clientes, tarjetas y consumos.
+### Crud Asesores.
 _Se utilizaron las librerias:_
-###Rxjs
-###Forms
-###NgBootstrap
-###FontAwesome
+### Rxjs
+### Forms
+### NgBootstrap
+### FontAwesome
 
-##Consideraciones Deploy
+## Consideraciones Deploy
 _Con una cuenta en IBM Cloud se creo un recurso de CloudFoundry Java Liberty con el que es posible realizar deploys de aplicaciones Java Web. Se procedio a obtener el build Angular y el war de spring boot. Y se crea el archivo manifiest.yml que permite hacer el despliegue:
 applications:
    - name: BackEndIBM
