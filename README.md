@@ -7,6 +7,7 @@ _Si devuelve un error el pom.xml Actualizar el m2e connector de maven_
 
 ## Consideraciones BackEnd
 _Se utilizo el gestor de base de datos embebido Apache Derby_
+_Dentro de la carpeta se adjunta SOAPUI de prueba de los microservicios._
 _Se crearon los CRUDs en Backend para Asesores, Clientes, Tarjetas y Consumos. Quedando las operaciones como sigue:_
 _Clientes:_
 ```
@@ -55,7 +56,7 @@ _Se utilizaron las librerias:_
 #### FontAwesome
 
 ## Consideraciones Deploy
-_Con una cuenta en IBM Cloud se creo un recurso de CloudFoundry Java Liberty con el que es posible realizar deploys de aplicaciones Java Web. Se procedio a obtener el build Angular y el war de spring boot. Y se crea el archivo manifiest.yml que permite hacer el despliegue:
+_Con una cuenta en IBM Cloud se creo un recurso de CloudFoundry Java Liberty con el que es posible realizar deploys de aplicaciones Java Web. Se procedio a obtener el build Angular y el war de spring boot. Y se crea el archivo manifiest.yml que permite hacer el despliegue:_
 ```
 applications:
    - name: BackEndIBM
