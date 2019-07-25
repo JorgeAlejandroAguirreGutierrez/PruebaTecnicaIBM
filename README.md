@@ -45,20 +45,22 @@ DELETE http://localhost:8080/ibm/adviser/{id}
 
 ## Consideraciones FrontEnd
 _Se hicieron vistas para:_
-### Crud Clientes
-### Ver registros de clientes, tarjetas y consumos.
-### Crud Asesores.
+_- Crud Clientes_
+_- Ver registros de clientes, tarjetas y consumos._
+_- Crud Asesores._
 _Se utilizaron las librerias:_
-### Rxjs
-### Forms
-### NgBootstrap
-### FontAwesome
+#### Rxjs
+#### Forms
+#### NgBootstrap
+#### FontAwesome
 
 ## Consideraciones Deploy
 _Con una cuenta en IBM Cloud se creo un recurso de CloudFoundry Java Liberty con el que es posible realizar deploys de aplicaciones Java Web. Se procedio a obtener el build Angular y el war de spring boot. Y se crea el archivo manifiest.yml que permite hacer el despliegue:
+```
 applications:
    - name: BackEndIBM
      random-route: true
      path: target/BackEndIBM-0.0.1-SNAPSHOT.war
      memory: 256M
      instances: 1
+```
