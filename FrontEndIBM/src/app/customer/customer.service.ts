@@ -4,19 +4,19 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { of, Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import * as global from '../global';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  private url: string ='http://localhost:8080/ibm/customer';
   private headers= new HttpHeaders({'Content-Type':'application/json'});
   private options = {headers: this.headers};
   
   constructor(private http: HttpClient, private router: Router) { }
 
   create(customer: Customer): Observable<Customer> {
-    return this.http.post(this.url, JSON.stringify(customer), this.options).pipe(
+    return this.http.post(global.endpoint+'/customer', JSON.stringify(customer), this.options).pipe(
       map(response => response as Customer), 
       catchError(err => {
         return throwError(err);
@@ -25,7 +25,7 @@ export class CustomerService {
   }
 
   get(): Observable<Customer[]> {
-    return this.http.get(this.url).pipe(
+    return this.http.get(global.endpoint+'/customer').pipe(
       map(response => response as Customer[]),
       catchError(err => {
         return throwError(err);
@@ -34,7 +34,7 @@ export class CustomerService {
   }
 
   getID (id: number): Observable<Customer> {
-    return this.http.get<Customer>(this.url+'/'+id).pipe(
+    return this.http.get<Customer>(global.endpoint+'/customer'+'/'+id).pipe(
       map(response => response as Customer),
       catchError(err => {
         return throwError(err);
@@ -43,7 +43,7 @@ export class CustomerService {
   }
 
   getCards (id: number): Observable<Customer> {
-    return this.http.get<Customer>(this.url+'/'+id+'/cards').pipe(
+    return this.http.get<Customer>(global.endpoint+'/customer'+'/'+id+'/cards').pipe(
       map(response => response as Customer),
       catchError(err => {
         return throwError(err);
@@ -52,7 +52,7 @@ export class CustomerService {
   }
 
   update(customer: Customer): Observable<Customer> {
-    return this.http.put(this.url, JSON.stringify(customer), this.options).pipe(
+    return this.http.put(global.endpoint+'/customer', JSON.stringify(customer), this.options).pipe(
       map(response => response as Customer), 
       catchError(err => {
         return throwError(err);
@@ -61,7 +61,7 @@ export class CustomerService {
   }
 
   delete(id: number): Observable<boolean> {
-    return this.http.delete(this.url+'/'+id).pipe(
+    return this.http.delete(global.endpoint+'/customer'+'/'+id).pipe(
       map(response => response as boolean), 
       catchError(err => {
         return throwError(err);

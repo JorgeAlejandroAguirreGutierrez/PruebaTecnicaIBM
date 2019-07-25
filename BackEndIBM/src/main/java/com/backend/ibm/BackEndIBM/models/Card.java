@@ -39,6 +39,21 @@ public class Card {
 	@OneToMany(cascade=CascadeType.ALL, targetEntity = History.class, mappedBy = "card")
 	private List<History> historys ;
 	
+	public Card(String number, String ccv, String type, long customer_id) {
+		this.number=number;
+		this.ccv=ccv;
+		this.type=type;
+		this.customer=new Customer(customer_id);
+	}
+	
+	public Card(long id) {
+		this.id=id;
+	}
+	
+	public Card() {
+		
+	}
+	
 	
 	public long getId() {
 		return id;

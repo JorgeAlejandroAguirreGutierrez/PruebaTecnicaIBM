@@ -54,7 +54,24 @@
                 </tr>
             </thead>
             <tbody>
-                
+                <tr *ngFor="let card of scustomer.cards">
+                    <td>
+                        {{card.number}}
+                    </td>
+                    <td>
+                        {{card.ccv}}
+                    </td>
+                    <td>
+                        {{card.type}}
+                    </td>
+                    <td>
+                        <div class="btn-group btn-group-justified">
+                            <button type="button" class="btn btn-default" (click)="open(history, card)">
+                                <fa-icon [icon]="['fas', 'eye']"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -78,7 +95,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    <tr *ngFor="let history of card.historys">
+                        <td>
+                            {{history.date}}
+                        </td>
+                        <td>
+                            {{history.description}}
+                        </td>
+                        <td>
+                            {{history.amount}}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

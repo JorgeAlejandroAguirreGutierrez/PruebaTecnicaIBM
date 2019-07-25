@@ -19,6 +19,15 @@ public class Adviser {
 	@Column(nullable = false, length = 50)
 	private String speciality;
 	
+	public Adviser(String name, String speciality) {
+		this.name=name;
+		this.speciality=speciality;
+	}
+	
+	public Adviser() {
+		
+	}
+	
 	public long getId() {
 		return id;
 	}

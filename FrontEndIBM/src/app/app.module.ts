@@ -6,8 +6,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatSelectModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,12 +18,13 @@ import { CustomerService} from './customer/customer.service';
 import { HistoryService} from './history/history.service';
 import { AdviserComponent } from './adviser/adviser.component';
 import { AdviserService} from './adviser/adviser.service';
+import { CardService} from './customer/card.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
-  {path: 'customer', component: CustomerComponent},
-  {path: 'history', component: HistoryComponent},
-  {path: 'adviser', component: AdviserComponent}
+  {path: 'cliente', component: CustomerComponent},
+  {path: 'historia', component: HistoryComponent},
+  {path: 'asesor', component: AdviserComponent}
 ]
 
 @NgModule({
@@ -43,11 +42,9 @@ const routes: Routes = [
     FormsModule,
     NgbModule,
     FontAwesomeModule,
-    BrowserAnimationsModule,
-    MatSelectModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [CustomerService, HistoryService, AdviserService],
+  providers: [CustomerService, HistoryService, AdviserService, CardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

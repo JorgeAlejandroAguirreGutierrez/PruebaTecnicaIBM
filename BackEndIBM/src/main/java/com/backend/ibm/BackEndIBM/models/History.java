@@ -36,6 +36,18 @@ public class History {
 	@JoinColumn(name = "card_id", nullable = false)
 	@JsonIgnore
 	private Card card;
+	
+	public History(Date date, double amount, String description, long card_id) {
+		
+		this.amount=amount;
+		this.date=date;
+		this.description=description;
+		this.card=new Card(card_id);
+	}
+	
+	public History() {
+		
+	}
 
 	public long getId() {
 		return id;

@@ -28,6 +28,21 @@ public class Customer implements Serializable {
 	@Column(nullable = false, length = 20)
 	private String phone;
 	
+	public Customer(String name, String address, String city, String phone) {
+		this.name=name;
+		this.address=address;
+		this.city=city;
+		this.phone=phone;
+	}
+	
+	public Customer(long id) {
+		this.id=id;
+	}
+	
+	public Customer() {
+		
+	}
+	
 	@OneToMany(cascade=CascadeType.ALL, targetEntity = Card.class, mappedBy = "customer")
 	private List<Card> cards ;
 	

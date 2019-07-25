@@ -1,6 +1,8 @@
+import { History } from '../history/history';
 export class Card {
     id: number;
     number: string;
-    cvc: string;
+    ccv: string;
     type:string;
+    historys: History[];
 }
